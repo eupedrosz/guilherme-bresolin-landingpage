@@ -40,3 +40,7 @@ next-env.d.ts
 # local source assets and temporary review files
 /img/
 /tmp/
+
+.vercel/
+.env*
+/dist-vercel/
