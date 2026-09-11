@@ -175,7 +175,8 @@ a { color: inherit; }
 }
 
 .site-nav__link:hover::after,
-.site-nav__link:focus-visible::after {
+.site-nav__link:focus-visible::after,
+.site-nav__link[aria-current='page']::after {
   transform: scaleX(1);
   transform-origin: left center;
 }
@@ -226,7 +227,7 @@ a { color: inherit; }
   font-family: 'Tusker 6800', Impact, sans-serif;
   font-weight: 800;
   letter-spacing: 0.01em;
-  transform: scaleX(1.15);
+  transform: scaleX(1.11);
   transform-origin: left center;
 }
 
@@ -249,10 +250,11 @@ a { color: inherit; }
 .socials {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   align-self: flex-start;
   gap: clamp(0.75rem, 1.4vh, 1rem);
   margin-top: clamp(1.35rem, 3vh, 2.1rem);
+  margin-left: 0;
   padding-left: 0;
 }
 
@@ -264,6 +266,7 @@ a { color: inherit; }
   letter-spacing: 0.04em;
   line-height: 0.95;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .socials__links {
@@ -279,13 +282,23 @@ a { color: inherit; }
   border: 2px solid var(--white);
   border-radius: 0.65rem;
   text-decoration: none;
-  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+  transition:
+    background 240ms ease,
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    color 240ms ease,
+    transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .socials__links a:hover {
-  background: var(--white);
+  border-color: var(--green);
+  background: var(--green);
+  box-shadow:
+    0 0 0 4px rgb(0 245 106 / 16%),
+    0 0 1.7rem 0.35rem rgb(0 245 106 / 52%),
+    0 1rem 2rem rgb(0 0 0 / 42%);
   color: var(--black);
-  transform: translateY(-3px);
+  transform: translateY(-6px) scale(1.035);
 }
 
 .socials__links svg {
@@ -296,6 +309,11 @@ a { color: inherit; }
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 2.4;
+  transition: transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.socials__links a:hover svg {
+  transform: scale(1.05);
 }
 
 /* Compact desktop heights, such as a MacBook Air, need a little more
@@ -783,6 +801,17 @@ a { color: inherit; }
   text-transform: uppercase;
 }
 
+.history-copy__title::after {
+  position: absolute;
+  right: 0;
+  bottom: -17px;
+  left: 0;
+  height: clamp(2px, 0.25vw, 4px);
+  border-radius: 999px;
+  background: currentColor;
+  content: '';
+}
+
 .history-copy__body {
   font-family: 'Inter', Arial, sans-serif;
   font-size: clamp(1rem, 1.15vw, 1.18rem);
@@ -863,6 +892,10 @@ a { color: inherit; }
   letter-spacing: 1.5px;
   line-height: 1;
   text-transform: uppercase;
+}
+
+#titulos > .history-copy__title {
+  margin-bottom: clamp(2.25rem, 4.5vh, 3rem);
 }
 
 .history-copy__milestone-title span {
@@ -1608,6 +1641,38 @@ a { color: inherit; }
   text-decoration: none;
 }
 
+@media (min-width: 1051px) {
+  .socials {
+    position: relative;
+    align-self: center;
+    gap: 0;
+    margin-top: 0;
+    margin-left: 0.5rem;
+    transform: translateY(-2rem);
+  }
+
+  .socials__label {
+    position: absolute;
+    bottom: calc(100% + 0.9rem);
+    right: 0;
+    display: block;
+    width: 100%;
+    font-size: clamp(1.5rem, 1.75vw, 2rem);
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+    text-align: right;
+  }
+
+  .socials__links {
+    gap: clamp(0.75rem, 1vw, 1.1rem);
+  }
+
+  .socials__links a {
+    width: clamp(4.75rem, 6vw, 7rem);
+    border-radius: 1rem;
+  }
+}
+
 @media (max-width: 1050px) {
   .hero__content {
     width: 72vw;
@@ -1889,6 +1954,12 @@ a { color: inherit; }
   .history-copy__milestone-title {
     font-size: clamp(1.35rem, 7vw, 2rem);
     letter-spacing: 1px;
+  }
+
+  .history-copy__milestone-title--latino {
+    font-size: clamp(1.15rem, 5vw, 1.25rem);
+    letter-spacing: 0.75px;
+    line-height: 1.08;
   }
 
   .history-copy__photos {
@@ -2235,6 +2306,39 @@ a { color: inherit; }
 
   .hero__number {
     font-size: 15vw;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1050px) and (min-height: 521px) {
+  .socials {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
+    gap: 0;
+    margin-top: 0;
+    margin-left: 0.4rem;
+  }
+
+  .socials__label {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 0.55rem);
+    display: block;
+    width: 100%;
+    font-size: clamp(1.05rem, 2vw, 1.4rem);
+    letter-spacing: 0.02em;
+    line-height: 0.95;
+    text-align: right;
+  }
+
+  .socials__links {
+    gap: clamp(0.6rem, 1.1vw, 0.85rem);
+  }
+
+  .socials__links a {
+    width: clamp(3.6rem, 7.25vw, 4.75rem);
+    border-radius: 0.75rem;
   }
 }
 

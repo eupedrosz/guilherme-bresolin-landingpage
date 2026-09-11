@@ -124,7 +124,7 @@ export default function Home() {
               109
             </div>
             <div className="socials" id="redes-sociais">
-              <p className="socials__label">Redes<br />Sociais</p>
+              <p className="socials__label">Redes Sociais</p>
               <div className="socials__links">
                 <a
                   href="https://www.tiktok.com/@bresolin109"
@@ -412,8 +412,8 @@ export default function Home() {
             </div>
 
             <div className="history-copy__milestone">
-              <h3 className="history-copy__milestone-title">
-                <span>2024</span> Campeão Latino-Americano — MX2
+              <h3 className="history-copy__milestone-title history-copy__milestone-title--latino">
+                <span>2024</span> Campeão Latino‑Americano — MX2
               </h3>
 
               <div className="history-copy__body">

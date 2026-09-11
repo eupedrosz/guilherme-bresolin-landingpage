@@ -39,6 +39,7 @@ export default function SiteNavigation({ items }: { items: readonly NavigationIt
           <a
             className="site-nav__link"
             href={item.href}
+            aria-current={item.href === '#home' ? 'page' : undefined}
             key={item.label}
             onClick={() => setIsOpen(false)}
           >
