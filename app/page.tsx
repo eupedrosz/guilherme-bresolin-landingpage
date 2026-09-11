@@ -40,6 +40,12 @@ const sponsorLogos = [
   { src: '/images/sponsors/pirelli-tight.png', alt: 'Pirelli' },
   { src: '/images/sponsors/bud-racing.png', alt: 'Bud Racing' },
   { src: '/images/sponsors/sacramento.svg', alt: 'Sacramento' },
+  { src: '/images/sponsors/aguai.png', alt: 'Águaí Água Mineral Natural', className: 'sponsors__logo--aguai' },
+  { src: '/images/sponsors/dropmud.svg', alt: 'Dropmud' },
+  { src: '/images/sponsors/durag.webp', alt: 'Durag Racing Industry' },
+  { src: '/images/sponsors/rock-solid.webp', alt: 'Rock Solid Eyewear' },
+  { src: '/images/sponsors/tg.png', alt: 'TG', className: 'sponsors__logo--tg' },
+  { src: '/images/sponsors/zombie-industries.png', alt: 'Zombie Industries' },
 ];
 
 function SocialIcon({ type }: { type: 'tiktok' | 'youtube' | 'instagram' }) {
@@ -78,7 +84,10 @@ function SponsorsMarquee({ className = '' }: { className?: string }) {
           {[false, true].map((duplicate) => (
             <div className="sponsors__group" aria-hidden={duplicate || undefined} key={duplicate ? 'duplicate' : 'original'}>
               {sponsorLogos.map((sponsor) => (
-                <div className="sponsors__logo" key={`${duplicate ? 'duplicate' : 'original'}-${sponsor.alt}`}>
+                <div
+                  className={`sponsors__logo ${sponsor.className ?? ''}`.trim()}
+                  key={`${duplicate ? 'duplicate' : 'original'}-${sponsor.alt}`}
+                >
                   <img src={sponsor.src} alt={duplicate ? '' : sponsor.alt} loading="lazy" draggable="false" />
                 </div>
               ))}
@@ -253,7 +262,7 @@ export default function Home() {
               Meu nome é <strong>Guilherme Bresolin</strong>, nasci e fui criado em <strong>Parobé, no Rio Grande do Sul</strong>. Foi aqui que começou a minha história com o motocross, uma paixão que apareceu cedo e acabou se transformando no meu estilo de vida.
             </p>
             <p>
-              Comecei a andar de moto <strong>aos 9 anos</strong>. Desde o primeiro contato, percebi que aquilo era muito mais do que uma diversão. Eu queria evoluir, competir e descobrir até onde poderia chegar. <strong>Aos 11 anos, já me tornei piloto profissional</strong>, assumindo responsabilidades e desafios que exigiram muita dedicação desde cedo.
+              Comecei a andar de moto <strong>aos 9 anos</strong>. Desde o primeiro contato, percebi que aquilo era muito mais do que uma diversão. Eu queria evoluir, competir e descobrir até onde poderia chegar. <strong>Aos 16 anos, já me tornei piloto profissional</strong>, assumindo responsabilidades e desafios que exigiram muita dedicação desde cedo.
             </p>
             <p>
               <strong>Sempre fui obcecado por vencer.</strong> Odeio perder, mas uso cada derrota como combustível para treinar mais, corrigir os meus erros e voltar ainda mais preparado. Sou muito focado e sei que nenhum resultado acontece por acaso. <strong>Cada conquista é resultado de disciplina, esforço e inúmeras horas de treinamento.</strong>

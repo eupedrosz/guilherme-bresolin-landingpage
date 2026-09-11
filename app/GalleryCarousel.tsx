@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const galleryPhotos = [
   { src: '/images/gallery/gallery-01.jpg', alt: 'Guilherme Bresolin em ação durante uma prova de motocross' },
@@ -60,7 +61,7 @@ export default function GalleryCarousel() {
             onClick={showPrevious}
             aria-label="Mostrar fotos anteriores"
           >
-            ‹
+            <ChevronLeft aria-hidden="true" />
           </button>
 
           <div className="gallery__viewport" aria-live="polite">
@@ -94,7 +95,7 @@ export default function GalleryCarousel() {
             onClick={showNext}
             aria-label="Mostrar próximas fotos"
           >
-            ›
+            <ChevronRight aria-hidden="true" />
           </button>
         </div>
 

@@ -998,19 +998,22 @@ a { color: inherit; }
   display: grid;
   width: 3rem;
   height: 3rem;
-  padding: 0 0 0.3rem;
+  padding: 0;
   border: 2px solid var(--green);
   border-radius: 50%;
   background: var(--green);
   color: var(--black);
   cursor: pointer;
-  font-family: Arial, sans-serif;
-  font-size: 2.8rem;
-  font-weight: 700;
-  line-height: 0.65;
   place-items: center;
   transform: translateY(-50%);
   transition: color 200ms ease, background 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+}
+
+.gallery__arrow svg {
+  display: block;
+  width: 1.65rem;
+  height: 1.65rem;
+  stroke-width: 4;
 }
 
 .gallery__arrow:hover,
@@ -1164,6 +1167,25 @@ a { color: inherit; }
   max-height: 100%;
   object-fit: contain;
   user-select: none;
+}
+
+.sponsors__logo--aguai img {
+  width: 92%;
+  height: 92%;
+  transform: translateY(-0.35rem);
+}
+
+.sponsors__logo--tg {
+  position: relative;
+}
+
+.sponsors__logo--tg img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 76%;
+  height: 76%;
+  transform: translate(-50%, -50%);
 }
 
 .sponsors__logo:hover {
