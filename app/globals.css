@@ -837,6 +837,13 @@ a { color: inherit; }
   margin-top: clamp(2rem, 5vh, 3.5rem);
 }
 
+.history-copy__photos--portrait {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: min(100%, 58rem);
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .history-copy__photos figure {
   overflow: hidden;
   margin: 0;
@@ -844,6 +851,10 @@ a { color: inherit; }
   border-radius: clamp(1rem, 2vw, 1.75rem);
   background: var(--black);
   box-shadow: 0 1rem 2.5rem rgb(0 0 0 / 16%);
+}
+
+.history-copy__photos--portrait figure {
+  aspect-ratio: 3 / 4;
 }
 
 .history-copy__photos img {
@@ -860,6 +871,33 @@ a { color: inherit; }
 
 .history-copy__photos figure:hover img {
   transform: scale(1.035);
+}
+
+@media (max-width: 1050px) {
+  .history-copy__photos--portrait {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(88%, 32rem);
+    justify-content: start;
+    margin-right: -6vw;
+    padding-right: 6vw;
+    padding-bottom: 0.25rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .history-copy__photos--portrait::-webkit-scrollbar {
+    display: none;
+  }
+
+  .history-copy__photos--portrait figure {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
 }
 
 .history-copy__feature-photo {
@@ -1965,14 +2003,14 @@ a { color: inherit; }
   .history-copy__photos {
     grid-template-columns: none;
     grid-auto-flow: column;
-    grid-auto-columns: min(82vw, 24rem);
+    grid-auto-columns: min(88%, 24rem);
     justify-content: start;
     margin-right: -1.25rem;
     padding-right: 1.25rem;
-    padding-bottom: 0.75rem;
+    padding-bottom: 0.25rem;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
-    scrollbar-width: thin;
+    scrollbar-width: none;
     scroll-snap-type: x mandatory;
   }
 

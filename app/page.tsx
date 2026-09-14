@@ -290,6 +290,10 @@ export default function Home() {
           <div className="history-copy__chapter" id="mxon-history">
             <h2 className="history-copy__title">MXON</h2>
 
+            <h3 className="history-copy__milestone-title">
+              <span>2023</span>
+            </h3>
+
             <div className="history-copy__body">
               <p>
                 Em 2023, vivi um dos momentos mais importantes da minha carreira: <strong>recebi minha primeira convocação para representar o Brasil no Motocross das Nações</strong>. Vestir as cores do meu país era um dos meus maiores sonhos como piloto, e receber essa oportunidade foi a realização de tudo aquilo que eu vinha buscando desde que comecei no esporte.
@@ -315,6 +319,41 @@ export default function Home() {
                 loading="lazy"
               />
             </figure>
+
+            <div className="history-copy__milestone">
+              <h3 className="history-copy__milestone-title">
+                <span>2026</span>
+              </h3>
+
+              <div className="history-copy__body">
+                <p>
+                  Em 2026, tive novamente a honra de ser convocado para <strong>representar o Brasil no Motocross das Nações</strong>. Receber essa notícia foi muito especial e trouxe de volta toda a emoção e o orgulho de vestir as cores do meu país em uma das maiores competições do motocross mundial.
+                </p>
+                <p>
+                  Estou muito entusiasmado com essa nova oportunidade e totalmente focado em chegar bem preparado para o MXON. Sei da responsabilidade que é representar o Brasil, mas também da importância de aproveitar cada momento dessa experiência.
+                </p>
+                <p>
+                  Vou dar o meu máximo dentro e fora das pistas para ajudar a equipe brasileira a conquistar o melhor resultado possível. <strong>Representar meu país novamente é um privilégio</strong> e mais um momento que ficará marcado para sempre na minha carreira.
+                </p>
+              </div>
+
+              <div className="history-copy__photos history-copy__photos--portrait" aria-label="Registros da convocação de Guilherme Bresolin para o Motocross das Nações de 2026">
+                <figure>
+                  <img
+                    src="/images/mxon/mxon-2026-team.jpg"
+                    alt="Guilherme Bresolin, Fabio Santos e Enzo Lopes convocados para representar o Brasil no MXON 2026"
+                    loading="lazy"
+                  />
+                </figure>
+                <figure>
+                  <img
+                    src="/images/mxon/mxon-2026-guilherme.jpg"
+                    alt="Guilherme Bresolin convocado para representar o Brasil no MXON 2026"
+                    loading="lazy"
+                  />
+                </figure>
+              </div>
+            </div>
           </div>
 
           <div className="history-copy__chapter" id="titulos">
@@ -462,7 +501,7 @@ export default function Home() {
                 Em 2026, iniciei <strong>um novo e importante capítulo da minha carreira ao lado da Factory Kawasaki Racing Team</strong>. Atualmente, estou disputando a categoria MX1 no Campeonato Brasileiro de Motocross MX1GP, enfrentando os principais pilotos do país e vivendo <strong>uma temporada de muito aprendizado e evolução</strong>.
               </p>
               <p>
-                Antes da etapa final, <strong>ocupo a 4ª posição do campeonato, com 239 pontos</strong>. Sigo totalmente focado e trabalhando forte para encerrar a temporada da melhor maneira possível, buscando <strong>um grande resultado para mim e para toda a equipe</strong>.
+                Finalizei a temporada de 2026 na <strong>4ª posição do Campeonato Brasileiro de Motocross MX1GP, somando 269 pontos</strong>. Foi um ano de grandes desafios, muito aprendizado e evolução ao lado da <strong>Factory Kawasaki Racing Team</strong>. Encerro o campeonato satisfeito com tudo o que construímos e ainda mais motivado para continuar trabalhando em busca de resultados maiores.
               </p>
             </div>
 
