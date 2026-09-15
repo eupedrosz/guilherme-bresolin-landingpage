@@ -34,18 +34,12 @@ const seasonRounds = [
 
 const sponsorLogos = [
   { src: '/images/sponsors/alpinestars.png', alt: 'Alpinestars' },
-  { src: '/images/sponsors/kawasaki.png', alt: 'Kawasaki' },
-  { src: '/images/sponsors/logo.png', alt: 'Vibe Energy Drink' },
+  { src: '/images/sponsors/kawasaki-1-tight.png', alt: 'Kawasaki' },
+  { src: '/images/sponsors/factory.png', alt: 'Factory' },
   { src: '/images/sponsors/motul-tight.png', alt: 'Motul' },
   { src: '/images/sponsors/pirelli-tight.png', alt: 'Pirelli' },
-  { src: '/images/sponsors/bud-racing.png', alt: 'Bud Racing' },
-  { src: '/images/sponsors/sacramento.svg', alt: 'Sacramento' },
-  { src: '/images/sponsors/aguai.png', alt: 'Águaí Água Mineral Natural', className: 'sponsors__logo--aguai' },
-  { src: '/images/sponsors/dropmud.svg', alt: 'Dropmud' },
   { src: '/images/sponsors/durag.webp', alt: 'Durag Racing Industry' },
-  { src: '/images/sponsors/rock-solid.webp', alt: 'Rock Solid Eyewear' },
   { src: '/images/sponsors/tg.png', alt: 'TG', className: 'sponsors__logo--tg' },
-  { src: '/images/sponsors/zombie-industries.png', alt: 'Zombie Industries' },
 ];
 
 function SocialIcon({ type }: { type: 'tiktok' | 'youtube' | 'instagram' }) {

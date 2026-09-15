@@ -1240,12 +1240,6 @@ a { color: inherit; }
   user-select: none;
 }
 
-.sponsors__logo--aguai img {
-  width: 92%;
-  height: 92%;
-  transform: translateY(-0.35rem);
-}
-
 .sponsors__logo--tg {
   position: relative;
 }
@@ -1987,6 +1981,10 @@ a { color: inherit; }
 
   .history-copy__body {
     line-height: 1.5;
+  }
+
+  #history-copy-title {
+    line-height: calc(0.9em + 5px);
   }
 
   .history-copy__milestone-title {
