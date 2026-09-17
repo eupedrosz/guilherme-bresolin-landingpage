@@ -1,6 +1,7 @@
 import GalleryCarousel from './GalleryCarousel';
 import ContactSection from './ContactSection';
 import CookieConsent from './CookieConsent';
+import InAppBrowserNotice from './InAppBrowserNotice';
 import SiteNavigation from './SiteNavigation';
 import SeasonCards from './SeasonCards';
 import ScrollReveal from './ScrollReveal';
@@ -619,6 +620,7 @@ export default function Home() {
       </footer>
 
       <CookieConsent />
+      <InAppBrowserNotice />
     </main>
   );
 }
