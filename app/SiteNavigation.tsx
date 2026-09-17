@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import DesktopStoryMenu from './DesktopStoryMenu';
 
 type NavigationItem = {
   label: string;
@@ -21,6 +22,16 @@ export default function SiteNavigation({ items }: { items: readonly NavigationIt
 
   return (
     <nav className={`site-nav${isOpen ? ' site-nav--open' : ''}`} aria-label="Navegação principal">
+      <a className="site-nav__wordmark" href="#home" aria-label="Voltar ao início">
+        <img src="/images/texto-bresolin.png" alt="Bresolin" width="521" height="274" />
+      </a>
+
+      <a className="site-nav__brand" href="#home" aria-label="Voltar ao início">
+        <span className="site-nav__brand-mark" aria-hidden="true">
+          <img src="/favicon-512x512.png" alt="" width="512" height="512" />
+        </span>
+      </a>
+
       <button
         className="site-nav__toggle"
         type="button"
@@ -47,6 +58,8 @@ export default function SiteNavigation({ items }: { items: readonly NavigationIt
           </a>
         ))}
       </div>
+
+      <DesktopStoryMenu />
     </nav>
   );
 }

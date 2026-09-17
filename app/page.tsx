@@ -3,6 +3,7 @@ import ContactSection from './ContactSection';
 import CookieConsent from './CookieConsent';
 import SiteNavigation from './SiteNavigation';
 import SeasonCards from './SeasonCards';
+import ScrollReveal from './ScrollReveal';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -96,6 +97,7 @@ function SponsorsMarquee({ className = '' }: { className?: string }) {
 export default function Home() {
   return (
     <main className="site-shell">
+      <ScrollReveal />
       <section className="hero" id="home" aria-labelledby="hero-title">
         <div className="hero__scene" aria-hidden="true" />
         <div className="hero__shade" aria-hidden="true" />
@@ -231,20 +233,6 @@ export default function Home() {
       </section>
 
       <SponsorsMarquee className="sponsors--between-sections" />
-
-      <section className="story-hub" id="historia-visual" aria-label="História e títulos" hidden>
-        <nav className="story-hub__nav" aria-label="Conteúdos sobre Guilherme Bresolin">
-          <a href="#historia">História</a>
-          <a href="#galeria">Galeria</a>
-          <a href="#mxon">MXON</a>
-        </nav>
-
-        <div className="story-hub__titles" id="mxon">
-          <a href="#titulos">Títulos</a>
-          <a href="#mx1gp">MX1GP</a>
-          <a href="#arena">Arena</a>
-        </div>
-      </section>
 
       <div className="light-sections">
       <section className="history-copy" id="historia" aria-labelledby="history-copy-title">

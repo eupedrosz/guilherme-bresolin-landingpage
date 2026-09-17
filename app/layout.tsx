@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import InitialLoader from './InitialLoader';
 
 export const metadata: Metadata = {
   title: 'Guilherme Bresolin',
@@ -21,7 +22,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body className="site-is-loading">
+        <noscript>
+          <style>{'body.site-is-loading{overflow:auto}.initial-loader{display:none}'}</style>
+        </noscript>
+        <InitialLoader />
+        {children}
+      </body>
     </html>
   );
 }
