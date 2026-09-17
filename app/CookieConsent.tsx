@@ -17,25 +17,18 @@ export default function CookieConsent() {
   const closeTimer = useRef<number | undefined>(undefined);
 
   useEffect(() => {
-    const desktopQuery = window.matchMedia('(min-width: 1051px)');
-
-    const updateVisibility = () => {
-      if (!desktopQuery.matches || hasConsentChoice()) {
-        setIsVisible(false);
-        return;
-      }
-
-      setIsVisible(true);
-    };
-
-    updateVisibility();
-    desktopQuery.addEventListener('change', updateVisibility);
+    setIsVisible(!hasConsentChoice());
 
     return () => {
-      desktopQuery.removeEventListener('change', updateVisibility);
       if (closeTimer.current) window.clearTimeout(closeTimer.current);
     };
   }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle('cookie-consent-is-visible', isVisible);
+
+    return () => document.body.classList.remove('cookie-consent-is-visible');
+  }, [isVisible]);
 
   const saveChoice = (choice: 'accepted' | 'rejected') => {
     const secureAttribute = window.location.protocol === 'https:' ? '; Secure' : '';
