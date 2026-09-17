@@ -14,7 +14,7 @@ function isInAppMobileBrowser() {
 
 export default function InAppBrowserNotice() {
   const [isVisible, setIsVisible] = useState(false);
-  const [showIOSHint, setShowIOSHint] = useState(false);
+  const [showOpenHint, setShowOpenHint] = useState(false);
 
   useEffect(() => {
     const wasDismissed = window.sessionStorage.getItem('bresolin_in_app_notice_dismissed') === 'true';
@@ -27,7 +27,7 @@ export default function InAppBrowserNotice() {
     return () => document.body.classList.remove('in-app-browser-notice-is-visible');
   }, [isVisible]);
 
-  const dismissNotice = () => {
+  const continueHere = () => {
     window.sessionStorage.setItem('bresolin_in_app_notice_dismissed', 'true');
     setIsVisible(false);
   };
@@ -37,42 +37,46 @@ export default function InAppBrowserNotice() {
 
     if (/Android/i.test(navigator.userAgent)) {
       const destination = `${window.location.host}${window.location.pathname}${window.location.search}${window.location.hash}`;
-      window.location.href = `intent://${destination}#Intent;scheme=${window.location.protocol.replace(':', '')};S.browser_fallback_url=${encodeURIComponent(currentUrl)};end`;
+      window.location.href = `intent://${destination}#Intent;scheme=${window.location.protocol.replace(':', '')};package=com.android.chrome;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;end`;
+      window.setTimeout(() => setShowOpenHint(true), 900);
       return;
     }
 
     const externalLink = document.createElement('a');
     externalLink.href = currentUrl;
-    externalLink.target = '_blank';
+    externalLink.target = '_system';
     externalLink.rel = 'noopener noreferrer external';
     externalLink.click();
-    setShowIOSHint(true);
+    window.setTimeout(() => setShowOpenHint(true), 500);
   };
 
   if (!isVisible) return null;
 
   return (
-    <aside className="in-app-browser-notice" aria-labelledby="in-app-browser-title" aria-live="polite">
-      <button className="in-app-browser-notice__close" type="button" onClick={dismissNotice} aria-label="Fechar aviso">
-        <span aria-hidden="true">×</span>
-      </button>
+    <div className="in-app-browser-overlay" role="presentation">
+      <aside className="in-app-browser-notice" aria-labelledby="in-app-browser-title" aria-live="polite">
+        <div className="in-app-browser-notice__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 4h6v6" />
+            <path d="m20 4-9 9" />
+            <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5" />
+          </svg>
+        </div>
 
-      <div className="in-app-browser-notice__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <path d="M14 4h6v6" />
-          <path d="m20 4-9 9" />
-          <path d="M18 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5" />
-        </svg>
-      </div>
+        <div className="in-app-browser-notice__copy">
+          <strong id="in-app-browser-title">Para uma melhor experiência, abra no navegador padrão do seu celular.</strong>
+          {showOpenHint ? <p>Se o aplicativo não fechar, toque em ••• e escolha “Abrir no navegador”.</p> : null}
+        </div>
 
-      <div className="in-app-browser-notice__copy">
-        <strong id="in-app-browser-title">Para uma melhor experiência, abra no navegador padrão do seu celular.</strong>
-        {showIOSHint ? <p>Se continuar no aplicativo, toque em ••• e escolha “Abrir no navegador”.</p> : null}
-      </div>
-
-      <button className="in-app-browser-notice__action" type="button" onClick={openInDefaultBrowser}>
-        Abrir agora
-      </button>
-    </aside>
+        <div className="in-app-browser-notice__actions">
+          <button className="in-app-browser-notice__action" type="button" onClick={openInDefaultBrowser}>
+            Abrir
+          </button>
+          <button className="in-app-browser-notice__continue" type="button" onClick={continueHere}>
+            Continuar aqui
+          </button>
+        </div>
+      </aside>
+    </div>
   );
 }
