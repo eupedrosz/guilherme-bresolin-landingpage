@@ -1,10 +1,13 @@
-import GalleryCarousel from './GalleryCarousel';
-import ContactSection from './ContactSection';
-import CookieConsent from './CookieConsent';
-import InAppBrowserNotice from './InAppBrowserNotice';
-import SiteNavigation from './SiteNavigation';
-import SeasonCards from './SeasonCards';
-import ScrollReveal from './ScrollReveal';
+import ContactSection from '@/components/ContactSection/ContactSection';
+import CookieConsent from '@/components/CookieConsent/CookieConsent';
+import GalleryCarousel from '@/components/GalleryCarousel/GalleryCarousel';
+import InAppBrowserNotice from '@/components/InAppBrowserNotice/InAppBrowserNotice';
+import ScrollReveal from '@/components/ScrollReveal/ScrollReveal';
+import SeasonCards from '@/components/SeasonCards/SeasonCards';
+import SiteFooter from '@/components/SiteFooter/SiteFooter';
+import SiteNavigation from '@/components/SiteNavigation/SiteNavigation';
+import SocialIcon from '@/components/SocialIcon/SocialIcon';
+import SponsorsMarquee from '@/components/SponsorsMarquee/SponsorsMarquee';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -43,57 +46,6 @@ const sponsorLogos = [
   { src: '/images/sponsors/durag.webp', alt: 'Durag Racing Industry' },
   { src: '/images/sponsors/tg.png', alt: 'TG', className: 'sponsors__logo--tg' },
 ];
-
-function SocialIcon({ type }: { type: 'tiktok' | 'youtube' | 'instagram' }) {
-  if (type === 'youtube') {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="2.5" y="5.5" width="19" height="13" rx="4" />
-        <path d="m10 9 5 3-5 3Z" fill="currentColor" stroke="none" />
-      </svg>
-    );
-  }
-
-  if (type === 'instagram') {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <rect x="3" y="3" width="18" height="18" rx="5" />
-        <circle cx="12" cy="12" r="4.2" />
-        <circle cx="17.4" cy="6.8" r="1" fill="currentColor" stroke="none" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path d="M14 3v11.2a4.3 4.3 0 1 1-3.5-4.2" />
-      <path d="M14 3c.7 2.8 2.3 4.5 5 5" />
-    </svg>
-  );
-}
-
-function SponsorsMarquee({ className = '' }: { className?: string }) {
-  return (
-    <section className={`sponsors ${className}`.trim()} aria-label="Patrocinadores e parceiros">
-      <div className="sponsors__viewport">
-        <div className="sponsors__track">
-          {[false, true].map((duplicate) => (
-            <div className="sponsors__group" aria-hidden={duplicate || undefined} key={duplicate ? 'duplicate' : 'original'}>
-              {sponsorLogos.map((sponsor) => (
-                <div
-                  className={`sponsors__logo ${sponsor.className ?? ''}`.trim()}
-                  key={`${duplicate ? 'duplicate' : 'original'}-${sponsor.alt}`}
-                >
-                  <img src={sponsor.src} alt={duplicate ? '' : sponsor.alt} loading="lazy" draggable="false" />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 export default function Home() {
   return (
@@ -233,7 +185,7 @@ export default function Home() {
         </section>
       </section>
 
-      <SponsorsMarquee className="sponsors--between-sections" />
+      <SponsorsMarquee logos={sponsorLogos} className="sponsors--between-sections" />
 
       <div className="light-sections">
       <section className="history-copy" id="historia" aria-labelledby="history-copy-title">
@@ -313,25 +265,32 @@ export default function Home() {
                   Em 2026, tive novamente a honra de ser convocado para <strong>representar o Brasil no Motocross das Nações</strong>. Receber essa notícia foi muito especial e trouxe de volta toda a emoção e o orgulho de vestir as cores do meu país em uma das maiores competições do motocross mundial.
                 </p>
                 <p>
-                  Estou muito entusiasmado com essa nova oportunidade e totalmente focado em chegar bem preparado para o MXON. Sei da responsabilidade que é representar o Brasil, mas também da importância de aproveitar cada momento dessa experiência.
+                  O Brasil terminou em <strong>17º no MXON 2026, em Ernée, na França</strong>. Não foi o resultado que a equipe queria e merecia, mas, apesar das quedas e de tudo o que aconteceu, <strong>saio de cabeça erguida e com a certeza de que dei o meu melhor dentro da pista</strong>.
                 </p>
                 <p>
-                  Vou dar o meu máximo dentro e fora das pistas para ajudar a equipe brasileira a conquistar o melhor resultado possível. <strong>Representar meu país novamente é um privilégio</strong> e mais um momento que ficará marcado para sempre na minha carreira.
+                  Também estou muito feliz e agradecido pelo apoio da <strong>Kawasaki BUD Racing da Europa</strong> nesta edição do Nações. <strong>Guiar uma moto de fábrica durante o fim de semana foi a realização de um sonho!</strong>
                 </p>
               </div>
 
               <div className="history-copy__photos history-copy__photos--portrait" aria-label="Registros da convocação de Guilherme Bresolin para o Motocross das Nações de 2026">
                 <figure>
                   <img
-                    src="/images/mxon/mxon-2026-team.jpg"
-                    alt="Guilherme Bresolin, Fabio Santos e Enzo Lopes convocados para representar o Brasil no MXON 2026"
+                    src="/images/mxon26/mxon1.jpg"
+                    alt="Guilherme Bresolin com a bandeira do Brasil e sua moto no MXON 2026"
                     loading="lazy"
                   />
                 </figure>
                 <figure>
                   <img
-                    src="/images/mxon/mxon-2026-guilherme.jpg"
-                    alt="Guilherme Bresolin convocado para representar o Brasil no MXON 2026"
+                    src="/images/mxon26/mxon2.jpg"
+                    alt="Guilherme Bresolin ao lado da equipe durante o MXON 2026"
+                    loading="lazy"
+                  />
+                </figure>
+                <figure>
+                  <img
+                    src="/images/mxon26/mxon3.jpg"
+                    alt="Equipe brasileira do MXON 2026 com Guilherme Bresolin"
                     loading="lazy"
                   />
                 </figure>
@@ -562,62 +521,12 @@ export default function Home() {
 
       <GalleryCarousel />
 
-      <SponsorsMarquee />
+      <SponsorsMarquee logos={sponsorLogos} />
 
       <ContactSection />
       </div>
 
-      <footer className="site-footer">
-        <div className="site-footer__inner">
-          <a className="site-footer__brand" href="#home" aria-label="Voltar ao início">
-            <span>Guilherme</span>
-            <span>Bresolin</span>
-          </a>
-
-          <nav className="site-footer__nav" aria-label="Navegação do rodapé">
-            {navItems.map((item) => (
-              <a
-                href={item.href}
-                key={item.label}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="site-footer__socials" aria-label="Redes sociais">
-            <a
-              href="https://www.tiktok.com/@bresolin109"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="TikTok de Guilherme Bresolin"
-            >
-              <SocialIcon type="tiktok" />
-            </a>
-            <a
-              href="https://www.youtube.com/@bresolin109"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="YouTube de Guilherme Bresolin"
-            >
-              <SocialIcon type="youtube" />
-            </a>
-            <a
-              href="https://www.instagram.com/bresolin109"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram de Guilherme Bresolin"
-            >
-              <SocialIcon type="instagram" />
-            </a>
-          </div>
-        </div>
-
-        <div className="site-footer__bottom">
-          <p>© 2026 Desenvolvido Por Souza Tecnologia. Todos os direitos reservados.</p>
-          <a href="mailto:contatobresolin109@gmail.com">contatobresolin109@gmail.com</a>
-        </div>
-      </footer>
+      <SiteFooter items={navItems} />
 
       <CookieConsent />
       <InAppBrowserNotice />

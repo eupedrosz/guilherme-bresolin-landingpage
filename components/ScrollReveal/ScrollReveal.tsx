@@ -14,7 +14,7 @@ const revealGroups = [
 export default function ScrollReveal() {
   useEffect(() => {
     const motionQuery = window.matchMedia(
-      '(min-width: 1051px), (min-width: 641px) and (max-width: 1050px) and (min-height: 521px)',
+      '(min-width: 1051px), (min-width: 641px) and (max-width: 1050px) and (min-height: 521px), (max-width: 640px)',
     );
     const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     let observer: IntersectionObserver | null = null;

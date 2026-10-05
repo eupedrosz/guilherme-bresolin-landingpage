@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import DesktopStoryMenu from './DesktopStoryMenu';
+import DesktopStoryMenu from '@/components/DesktopStoryMenu/DesktopStoryMenu';
 
 type NavigationItem = {
   label: string;

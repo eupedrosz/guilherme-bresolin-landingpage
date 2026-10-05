@@ -1,6 +1,16 @@
 import type { Metadata } from 'next';
+import InitialLoader from '@/components/InitialLoader/InitialLoader';
+import '@/components/ContactSection/ContactSection.css';
+import '@/components/CookieConsent/CookieConsent.css';
+import '@/components/GalleryCarousel/GalleryCarousel.css';
+import '@/components/InAppBrowserNotice/InAppBrowserNotice.css';
+import '@/components/InitialLoader/InitialLoader.css';
+import '@/components/SeasonCards/SeasonCards.css';
+import '@/components/SiteFooter/SiteFooter.css';
+import '@/components/SiteNavigation/SiteNavigation.css';
+import '@/components/SponsorsMarquee/SponsorsMarquee.css';
+import '@/components/DesktopStoryMenu/DesktopStoryMenu.css';
 import './globals.css';
-import InitialLoader from './InitialLoader';
 
 export const metadata: Metadata = {
   title: 'Guilherme Bresolin',
