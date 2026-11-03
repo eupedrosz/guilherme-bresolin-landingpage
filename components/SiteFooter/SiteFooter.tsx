@@ -51,7 +51,21 @@ export default function SiteFooter({ items }: { items: readonly NavigationItem[]
       </div>
 
       <div className="site-footer__bottom">
-        <p>© 2026 Desenvolvido Por Souza Tecnologia. Todos os direitos reservados.</p>
+        <div className="site-footer__meta">
+          <p>
+            <span>© 2026 Todos os direitos reservados.</span>
+            <a
+              className="site-footer__developer"
+              href="https://sztechnology.cloud"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Desenvolvido por SZ Tech — visitar site"
+            >
+              <span>Desenvolvido por</span>
+              <img src="/images/sz-tech-logo.webp" alt="SZ Tech" />
+            </a>
+          </p>
+        </div>
         <a href="mailto:contatobresolin109@gmail.com">contatobresolin109@gmail.com</a>
       </div>
     </footer>
